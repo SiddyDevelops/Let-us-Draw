@@ -38,5 +38,7 @@ dependencies {
 
     //Signature View
     implementation 'com.kyanogen.signatureview:signature-view:1.2'
+    //Dexter
+    implementation 'com.karumi:dexter:6.2.3'
 
 }

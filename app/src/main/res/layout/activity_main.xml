@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/myLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
@@ -22,6 +23,7 @@
         android:orientation="horizontal"
         android:layout_alignParentBottom="true"
         android:gravity="center"
+        android:baselineAligned="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -43,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/textPenSize"
                 android:textColor="@color/black"
-                android:text="5dp"/>
+                android:text="@string/default_size"/>
 
         </LinearLayout>
 

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Let\'s Draw!</string>
+    <string name="default_size">5dp</string>
 </resources>

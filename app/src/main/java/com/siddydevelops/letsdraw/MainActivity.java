@@ -3,6 +3,7 @@ package com.siddydevelops.letsdraw;
 import static android.view.WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
 
 import android.Manifest;
@@ -25,6 +26,8 @@ import com.kyanogen.signatureview.SignatureView;
 import java.io.File;
 import java.util.List;
 
+import yuku.ambilwarna.AmbilWarnaDialog;
+
 public class MainActivity extends AppCompatActivity {
 
     SignatureView signatureView;
@@ -34,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
 
     private static String fileName;
     File path =  new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/MyPaintings");
+
+    int defaultColor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +62,31 @@ public class MainActivity extends AppCompatActivity {
 
         askPermission();
 
+        defaultColor = ContextCompat.getColor(MainActivity.this, R.color.black);
+
+        imgColor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openColorpicker();
+            }
+        });
+
+    }
+
+    private void openColorpicker() {
+        AmbilWarnaDialog ambilWarnaDialog = new AmbilWarnaDialog(this, defaultColor, new AmbilWarnaDialog.OnAmbilWarnaListener() {
+            @Override
+            public void onCancel(AmbilWarnaDialog dialog) {
+
+            }
+
+            @Override
+            public void onOk(AmbilWarnaDialog dialog, int color) {
+                defaultColor = color;
+                signatureView.setPenColor(color);
+            }
+        });
+        ambilWarnaDialog.show();
     }
 
     private void askPermission() {

@@ -38,7 +38,9 @@ dependencies {
 
     //Signature View
     implementation 'com.kyanogen.signatureview:signature-view:1.2'
-    //Dexter
+    //Dexter-AskPermissions
     implementation 'com.karumi:dexter:6.2.3'
+    //ColorPicker
+    implementation 'com.github.yukuku:ambilwarna:2.0.1'
 
 }
